@@ -1,0 +1,53 @@
+/*
+
+*/
+
+body
+{
+    background-color: green;
+    text-align: center;
+    background-color: rgb(223, 219, 215);
+}
+
+header
+{
+    background-color: rgb(223, 219, 215);
+    color: rgb(218, 40, 40);
+    padding-top: 1em;
+    padding-bottom: .5em;
+    font-family: 'Abril Fatface', cursive;
+}
+
+nav
+{
+    background-color: crimson;
+    color: rgb(245, 223, 197);
+    font-family: 'Lobster', cursive;
+    font-size: 1.65em;
+}
+
+.landing
+{
+    background-image: url("images/fall.jpg");
+    height: 55em;
+    background-size: cover;
+}
+
+.bar
+{
+    height: 10em;
+    background-color: crimson;
+    transform: rotate(2deg);
+    width: 101.8%;
+    position: relative;
+    top: -35px;
+    z-index: 2;
+}
+
+.shop
+{
+    background-color: rgb(223, 219, 215);
+    height: 50em;
+    position: relative;
+    top: -55px;
+}
