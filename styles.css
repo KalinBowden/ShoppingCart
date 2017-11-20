@@ -7,6 +7,7 @@ body
     background-color: green;
     text-align: center;
     background-color: rgb(223, 219, 215);
+    padding: 0;
 }
 
 header
@@ -47,32 +48,43 @@ nav
 .shop0
 {
     background-color: rgb(223, 219, 215);
-    position: relative;
     margin-top: 5em;
+    padding-left: 1em;
 }
 
 .shop1
 {
     background-color: rgb(223, 219, 215);
-
     position: relative;
+    
 }
 
 .item
 {
     text-align: center;
-    padding-left: 10em;
     margin-bottom: 10em;
+    display: inline-block;
+
 }
 
 .checkout
 {
     padding-top: 7em;
     padding-bottom: 9em;
-
 }
 
 .slot
 {
-    padding: .5em;
+    display: inline-block;
+    
+}
+
+.container-fluid
+{
+    margin: 0;
+    padding: 0;
+}
+.padfix
+{
+    padding: 0;
 }
