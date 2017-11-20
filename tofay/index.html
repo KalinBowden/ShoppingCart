@@ -1,0 +1,36 @@
+
+<script src="https://unpkg.com/vue"></script>
+<style>
+    .active
+    {
+        background-color: yellow;
+    }
+</style>
+
+<div id='app'>
+
+    {{message}}
+    <input v-model="message">
+    <p v-bind:class="{active:isActive}">Here is a paragraph</p>
+    <button v-on:click = "changeTitle">Change</button>
+    <ul><li>{{todos[0].list}}</li>{{todos[1].list}}</li><li>{{todos[2].list}}</li><li>{{todos[2].list}}</li><li>{{todos[3].list}}</li><li>{{todos[4].list}}</li></ul>
+
+    <ul><li v-for="todo in todos">{{todo.list}}</li></ul>
+    <button v-on:click = "addClicks">Add some clickss</button>
+    <p>Clicks: {{clicks}}</p>
+    <p>Another: {{another}}</p>
+</div>
+
+<script>
+
+    var myApp = new Vue(
+        {
+            el : "#app",
+            data : {message : "Hello Vue", isActive : true, todos : [{list : "html"},{list : "css"},{list : "markely"},{list : "kalin"},{list : "fun"}], clicks : 0, another: 0},
+            methods: {changeTitle(){this.message = "Hello from the method"}, addClicks(){this.clicks++; this.another = this.another + 5;}},
+            computed: {counter(){return this.another + 10;}}
+        }
+    );
+    
+</script>
+

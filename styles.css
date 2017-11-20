@@ -44,10 +44,35 @@ nav
     z-index: 2;
 }
 
-.shop
+.shop0
 {
     background-color: rgb(223, 219, 215);
-    height: 50em;
     position: relative;
-    top: -55px;
+    margin-top: 5em;
+}
+
+.shop1
+{
+    background-color: rgb(223, 219, 215);
+
+    position: relative;
+}
+
+.item
+{
+    text-align: center;
+    padding-left: 10em;
+    margin-bottom: 10em;
+}
+
+.checkout
+{
+    padding-top: 7em;
+    padding-bottom: 9em;
+
+}
+
+.slot
+{
+    padding: .5em;
 }
