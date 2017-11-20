@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,7 +26,8 @@
     <![endif]-->
   </head>
   <body>
-    <div class="container-fluid">
+    <script src="https://unpkg.com/vue"></script>
+    <div class="container-fluid" id="app">
             
         
         <header>
@@ -76,7 +78,7 @@
                                     <h3>Hair Cut</h3>
                                     <p>Get a dapper hair cut from our stylest</p>
                                         <p>Price: $10.50</p>
-                                    <p><a href="#" class="btn btn-primary" role="button">Order</a> <a href="#" class="btn btn-default" role="button">Slots: 5</a></p>
+                                    <p><a href="#" class="btn btn-primary" role="button" v-on:click="addItem0">Order</a> <a href="#" class="btn btn-default" role="button" id="avl0">Slots: {{clicks}}</a></p>
                                 </div>
                             </div>
                         </div>
@@ -89,10 +91,10 @@
                             <div class="thumbnail slot">
                                 <img src="images/haircut.jpg" alt="..." >
                                 <div class="caption">
-                                    <h3>Hair Cut</h3>
-                                    <p>Get a dapper hair cut from our stylest</p>
+                                    <h3>Beard Trim</h3>
+                                    <p>Get a dapper Beard Trim from our stylest</p>
                                         <p>Price: $10.50</p>
-                                    <p><a href="#" class="btn btn-primary" role="button">Order</a> <a href="#" class="btn btn-default" role="button">Slots: 5</a></p>
+                                    <p><a href="#" class="btn btn-primary" role="button" v-on:click="addItem0">Order</a> <a href="#" class="btn btn-default" role="button" id="avl0">Slots: {{clicks}}</a></p>
                                 </div>
                             </div>
                         </div>
@@ -105,10 +107,10 @@
                             <div class="thumbnail slot">
                                 <img src="images/haircut.jpg" alt="..." >
                                 <div class="caption">
-                                    <h3>Hair Cut</h3>
-                                    <p>Get a dapper hair cut from our stylest</p>
+                                    <h3>Hot Shave</h3>
+                                    <p>Get a dapper Hot Shave from our stylest</p>
                                         <p>Price: $10.50</p>
-                                    <p><a href="#" class="btn btn-primary" role="button">Order</a> <a href="#" class="btn btn-default" role="button">Slots: 5</a></p>
+                                    <p class="btn btn-primary" role="button" v-on:click="addItem0">Order </p> <a href="#" class="btn btn-default" role="button" id="avl0">Slots: {{clicks}}</a></p>
                                 </div>
                             </div>
                         </div>
@@ -132,19 +134,25 @@
             <div class="row checkout">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <nav class="navbar navbar-default">
-                        <div class="container-fluid">
-                            <div class="navbar-header">
-                            <a class="navbar-brand" href="#">
-                                <img alt="Brand" src="...">
-                            </a>
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><Strong>What In You Dapper Shopping Cart</strong></div>
+                        <div class="panel-body padfix">
+                            <!-- Table -->
+                            <table class="table">
+                            <tr>
+                                <th>Item</th><th>Desc</th><th>Cost</th><th>Quanity</th><th>Total</th><th>Add/Sub</th>
+                            </tr>
+                            <tr>
+                                <td>Hiar Cut</td><td>Dapper Cut</td><td>1</td><td>10.50</td><td>$10.50</td><td>+ -</td>
+                            </tr>
+                            </table>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <span class="input-group-addon">{{total}}</span>
                             </div>
                         </div>
-                    </nav>
-                    <div class="input-group">
-                        <span class="input-group-addon">$</span>
-                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                        <span class="input-group-addon">.00</span>
                     </div>
                 </div>
                 <div class="col-md-2"></div>
@@ -166,8 +174,17 @@
                             
         </div>
     </div>
-    <script>
 
+    <script>
+        var myApp = new Vue(
+            {
+                el: "#app",
+                data: {clicks: 5, total: 0, amtOrdered0: 0},
+                methods : {addItem0(){ if (this.clicks > 0){this.clicks--; this.amtOrdered0++}; this.total += 10.50},
+                        minItem0(){ if (this.clicks > 5){this.clicks++}; this.total -= 10.50}}
+
+            }
+        )
 
     </script>
 

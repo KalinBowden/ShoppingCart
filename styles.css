@@ -88,3 +88,8 @@ nav
 {
     padding: 0;
 }
+
+th
+{
+    text-align: center;
+}
