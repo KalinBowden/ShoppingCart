@@ -69,48 +69,15 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-9">
 
-                    <div class="col-md-4 item">
-                    <div class="row">
-                        <div class="col-sm-6 col-md-8 padfix">
-                            <div class="thumbnail slot">
+                <div class="col-md-4 item" v-for="item in items">
+                    <div class="row ">
+                        <div class="col-sm-6 col-md-8 padfix" >
+                            <div class="thumbnail slot" style="box-shadow: 10px 10px 5px #888888;">
                                 <img src="images/haircut.jpg" alt="..." >
                                 <div class="caption">
-                                    <h3>Hair Cut</h3>
-                                    <p>Get a dapper hair cut from our stylest</p>
-                                        <p>Price: $10.50</p>
-                                    <p><a href="#" class="btn btn-primary" role="button" v-on:click="addItem0">Order</a> <a href="#" class="btn btn-default" role="button" id="avl0">Slots: {{clicks}}</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-                
-                <div class="col-md-4 item">
-                    <div class="row">
-                        <div class="col-sm-6 col-md-8 padfix">
-                            <div class="thumbnail slot">
-                                <img src="images/haircut.jpg" alt="..." >
-                                <div class="caption">
-                                    <h3>Beard Trim</h3>
-                                    <p>Get a dapper Beard Trim from our stylest</p>
-                                        <p>Price: $10.50</p>
-                                    <p><a href="#" class="btn btn-primary" role="button" v-on:click="addItem0">Order</a> <a href="#" class="btn btn-default" role="button" id="avl0">Slots: {{clicks}}</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 item">
-                    <div class="row">
-                        <div class="col-sm-6 col-md-8 padfix">
-                            <div class="thumbnail slot">
-                                <img src="images/haircut.jpg" alt="..." >
-                                <div class="caption">
-                                    <h3>Hot Shave</h3>
-                                    <p>Get a dapper Hot Shave from our stylest</p>
-                                        <p>Price: $10.50</p>
-                                    <p class="btn btn-primary" role="button" v-on:click="addItem0">Order </p> <a href="#" class="btn btn-default" role="button" id="avl0">Slots: {{clicks}}</a></p>
+                                    <h3>{{item.name}}</h3>
+                                    <p>{{item.desc}}</p>
+                                    <p class="btn btn-success" role="button" v-on:click="addItem0">Order: <span><strong>$</strong></span>{{item.price}} </p> <a href="#" class="btn btn-default" role="button" id="avl0">Slots: {{item.quantity}}</a></p>
                                 </div>
                             </div>
                         </div>
@@ -136,15 +103,23 @@
                 <div class="col-md-8">
                     
                     <div class="panel panel-default">
-                        <div class="panel-heading"><Strong>What In You Dapper Shopping Cart</strong></div>
+                        <div class="panel-heading"><Strong><span class="glyphicon glyphicon-shopping-cart " style="font-size: 5em;"></span></strong></div>
                         <div class="panel-body padfix">
                             <!-- Table -->
+                            <Strong style="font-size: 2em;">Whats in your Dapper cart?</strong>
+                            
                             <table class="table">
                             <tr>
-                                <th>Item</th><th>Desc</th><th>Cost</th><th>Quanity</th><th>Total</th><th>Add/Sub</th>
+                                <th>Item</th><th>Desc</th><th>Quanity</th><th>Cost</th><th>Total</th><th>Add</th><th>Sub</th>
                             </tr>
                             <tr>
-                                <td>Hiar Cut</td><td>Dapper Cut</td><td>1</td><td>10.50</td><td>$10.50</td><td>+ -</td>
+                                <td class="">Hiar Cut</td><td class="">Dapper Cut</td><td class="input-group-addon">1</td><td>10.50</td><td class="input-group-addon"> <span><strong>$</strong></span> 10.50</td><td class="input-group-addon"><span class="glyphicon glyphicon-plus"></span></td><td class="input-group-addon"><span class="glyphicon glyphicon-minus"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="">Hiar Cut</td><td class="">Dapper Cut</td><td class="input-group-addon">1</td><td>5.00</td><td class="input-group-addon"> <span><strong>$</strong></span> 10.50</td><td class="input-group-addon"><span class="glyphicon glyphicon-plus"></span></td><td class="input-group-addon"><span class="glyphicon glyphicon-minus"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="">Hiar Cut</td><td class="">Dapper Cut</td><td class="input-group-addon">1</td><td>3.50</td><td class="input-group-addon"> <span><strong>$</strong></span> 10.50</td><td class="input-group-addon"><span class="glyphicon glyphicon-plus"></span></td><td class="input-group-addon"><span class="glyphicon glyphicon-minus"></span></td>
                             </tr>
                             </table>
                             <div class="input-group">
@@ -179,7 +154,21 @@
         var myApp = new Vue(
             {
                 el: "#app",
-                data: {clicks: 5, total: 0, amtOrdered0: 0},
+                data: {clicks: 5, total: 0, amtOrdered0: 0,
+                items :
+                [
+                    {name: 'Hair Cut', desc : 'A dapper hair cut to help you look your best while being the best', quantity: 10, ordered : 0, price : 10.50, imgSrc : 'images/hair.jpg'},
+                    {name: 'Beard Trim', desc : 'A dapper beard trim to help you tame your wild mane', quantity: 12, ordered : 0, price : 5.00, imgSrc : 'images/hair.jpg'},
+                    {name: 'Hot Towel', desc : 'A dapper hot towel to help you relax for the day', quantity: 20, ordered : 0, price : 3.50, imgSrc : 'images/hair.jpg'},
+                    {name: 'Warm Shave', desc : 'Im sorry the weight of being a man was too much for you', quantity: 20, ordered : 0, price : 5.50, imgSrc : 'images/hair.jpg'},
+                    {name: 'Manly Cologne', desc : 'A dapper scent of wood and musk to add to you charm', quantity: 25, ordered : 0, price : 2.00, imgSrc : 'images/hair.jpg'},
+                    {name: 'Shoe Shine', desc : 'A dapper shoe shie to help you look your best', quantity: 15, ordered : 0, price : 3.50, imgSrc : 'images/hair.jpg'},
+                    {name: 'Beard Styling', desc : 'A dapper style for your most manly facial feature', quantity: 5, ordered : 0, price : 20.00, imgSrc : 'images/hair.jpg'},
+                    {name: 'Hair Wash', desc : 'A dapper shampoo and condition for your head', quantity: 10, ordered : 0, price : 10.00, imgSrc : 'images/hair.jpg'},
+                    {name: 'Manly Facial', desc : 'A dapper facial made from manly ingrediants so you dont fell like a sissy', quantity: 5, ordered : 0, price : 8.50, imgSrc : 'images/hair.jpg'}
+                ]
+                    
+                },
                 methods : {addItem0(){ if (this.clicks > 0){this.clicks--; this.amtOrdered0++}; this.total += 10.50},
                         minItem0(){ if (this.clicks > 5){this.clicks++}; this.total -= 10.50}}
 
