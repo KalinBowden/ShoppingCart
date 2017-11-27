@@ -13,7 +13,6 @@ body
 
 header
 {
-    background-color: #F0F0F0;
     color: #d80000;
     padding-top: 1em;
     padding-bottom: .5em;
@@ -109,4 +108,9 @@ th
 .table
 {
     margin: 0;
+}
+
+.totalBar
+{
+    font-size: 1.25em;
 }

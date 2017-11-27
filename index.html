@@ -73,7 +73,7 @@
                     <div class="row ">
                         <div class="col-sm-6 col-md-8 padfix" >
                             <div class="thumbnail slot" style="box-shadow: 10px 10px 5px #888888;" >
-                                <img src="images/haircut.jpg" v-bind:src="item.imgSrc" alt="..." height="400" width="400">
+                                <img  v-bind:src="item.imgSrc" src="images/haircut.jpg"  alt="..." height="400" width="400">
                                 <div class="caption">
                                     <h3>{{item.name}}</h3>
                                     <p>{{item.desc}}</p>
@@ -113,14 +113,14 @@
                                     <th>Item</th><th>Desc</th><th>Cost</th><th>Quantity</th><th>Total</th><th>Add</th><th>Sub</th>
                                 </tr>
                                 <tr v-for="item in items"  v-if="item.ordered > 0">
-                                    <td class=""><strong>{{item.name}}</strong></td><td class="">{{item.desc}}</td><td>{{item.price}}</td><td class="input-group-addon">{{item.ordered}}</td><td class="input-group-addon"> <span><strong>$</strong></span> {{item.price * item.ordered}}</td><td class="input-group-addon" v-on:click="addItem(item)"><span class="glyphicon glyphicon-plus" style="color: rgb(95, 228, 95)"></span></td><td class="input-group-addon" v-on:click="removeItem(item)"><span class="glyphicon glyphicon-minus" style="color: red"></span></td>
+                                    <td class=""><strong>{{item.name}}</strong></td><td >{{item.desc}}</td><td class="input-group-addon"><span><strong>$</strong></span>{{item.price}}</td><td class="input-group-addon">{{item.ordered}}</td><td class="input-group-addon"><span><strong>$</strong></span>{{item.price * item.ordered}}</td><td class="input-group-addon" v-on:click="addItem(item)"><span class="glyphicon glyphicon-plus" style="color: rgb(95, 228, 95);  font-size: 1.5em;"></span></td><td class="input-group-addon" v-on:click="removeItem(item)"><span class="glyphicon glyphicon-minus" style="color: red; font-size: 1.5em;"></span></td>
                                 </tr>
                             </table>
                             <div class="input-group">
                                 
-                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                                <span class="input-group-addon"> <strong>Items Ordered: </strong>{{itemsOrdered}}</span>
-                                <span class="input-group-addon"><strong>${{total}}</strong></span>
+                                <input type="text" class="form-control totalBar" aria-label="Amount (to the nearest dollar)">
+                                <span class="input-group-addon totalBar"> <strong>Items Ordered: </strong>{{itemsOrdered}}</span>
+                                <span class="input-group-addon totalBar"><strong>${{total}}</strong></span>
                             </div>
                         </div>
                     </div>
@@ -152,7 +152,7 @@
                 data: {clicks: 5, total: 0, itemsOrdered: 0,
                 items :
                 [
-                    {name: 'Hair Cut', desc : 'A dapper hair cut to help you look your best while being the best', quantity: 10, ordered : 0, price : 10, imgSrc : 'images/haircut.jpg'},
+                    {name: 'Hair Cut', desc : 'A dapper hair cut to help you look your best while being the best', quantity: 10, ordered : 0, price : 10 , imgSrc : 'images/haircut.jpg'},
                     {name: 'Beard Trim', desc : 'A dapper beard trim to help you tame your wild mane with style and class', quantity: 12, ordered : 0, price : 5, imgSrc : 'images/trim.jpg'},
                     {name: 'Hot Towel', desc : 'A dapper hot towel to help you relax for the day ahead while feeling awesome', quantity: 20, ordered : 0, price : 3, imgSrc : 'images/towel.jpg'},
                     {name: 'Warm Shave', desc : 'Im sorry the weight of being a man was too much for you to bare, maybe next time', quantity: 20, ordered : 0, price : 5, imgSrc : 'images/shave.jpg'},
