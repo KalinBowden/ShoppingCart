@@ -78,6 +78,7 @@ nav
 {
     display: inline-block;
     background-color: #dfbf9f;
+    min-height: 38em;
 }
 
 .container-fluid
